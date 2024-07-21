@@ -6,9 +6,9 @@ along with the user's login and repository name.
 
 # Installation
 
-'''
+```
 git clone ----
-'''
+```
 
 # Plugins
 
@@ -21,11 +21,11 @@ git clone ----
 
 All configuration data placed in application.properties file
 
-'''
+```
 gitApi.barerToken = Bearer UseYourBarerGitToken     # User your personal bearer (jwt) token with "Bearer" word before it
 gitApi.acceptHeader = application/vnd.github+json   # Accept request header
 gitApi.gitApiVersion = 2022-11-28                   # Git Api version header
-'''
+```
 
 # Commands
 
