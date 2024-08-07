@@ -1,8 +1,10 @@
 package pl.murakami.gitrepos.exe;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatusCode;
 
-public class UserNotFoundException extends RuntimeException{
+@Getter
+public class UserNotFoundException extends RuntimeException {
 
     private final HttpStatusCode httpStatus;
     public UserNotFoundException(String message, HttpStatusCode httpStatus) {
@@ -10,7 +12,4 @@ public class UserNotFoundException extends RuntimeException{
         this.httpStatus = httpStatus;
     }
 
-    public HttpStatusCode getHttpStatus() {
-        return httpStatus;
-    }
 }

@@ -3,11 +3,10 @@ package pl.murakami.gitrepos.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestClient;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
-public class GitHubWebClientConfiguration {
+public class WebClientConfig {
 
     @Value("${gitApi.barerToken}")
     private String barerToken;
@@ -15,11 +14,13 @@ public class GitHubWebClientConfiguration {
     private String acceptHeader;
     @Value("${gitApi.gitApiVersion}")
     private String gitApiVersion;
+    @Value("${gitApi.base.url}")
+    private String baseUrl;
 
     @Bean
-    public RestClient gitHubRestClient() {
-        return RestClient.builder()
-                .baseUrl("https://api.github.com")
+    public WebClient webClient(WebClient.Builder builder) {
+        return builder
+                .baseUrl(baseUrl)
                 .defaultHeader("Accept", acceptHeader)
                 .defaultHeader("Authorization", barerToken)
                 .defaultHeader("X-GitHub-Api-Version", gitApiVersion)
